@@ -329,7 +329,7 @@
           <p data-i18n="job6_desc">Liderança de projetos técnicos de médio e longo prazo até a implantação em produção, coordenando equipes internas e fornecedores externos, incluindo cronogramas e programas de UAT.</p>
         </div>
       </div>
-      <a class="btn ghost" style="display:inline-block; margin-top:16px;" href="#"><span data-i18n="cv_download">Baixar CV completo (PDF)</span> <span class="edit" data-i18n="link_marker">[link]</span></a>
+      <a id="cv-download-link" class="btn ghost" style="display:inline-block; margin-top:16px;" href="files/Gabriel-Salles-CV-PT.pdf" target="_blank" rel="noopener" download><span data-i18n="cv_download">Baixar CV completo (PDF)</span></a>
     </div>
 
     <div class="panel span-6" id="contato">
@@ -359,13 +359,22 @@
 
     <div class="panel span-2 panel-quiet">
       <span class="tag amber" data-i18n="now_playing_title">♪ NOW PLAYING</span>
-      <p style="margin:0 0 6px; font-size:.9rem; font-weight:600;" data-i18n="now_playing_desc">Guitarra — canal no YouTube</p>
-      <div class="bars">
-        <div style="height:40%; animation-delay:0s;"></div><div style="height:90%; animation-delay:.15s;"></div><div style="height:60%; animation-delay:.3s;"></div>
-        <div style="height:100%; animation-delay:.1s;"></div><div style="height:50%; animation-delay:.25s;"></div><div style="height:75%; animation-delay:.05s;"></div>
-        <div style="height:35%; animation-delay:.35s;"></div><div style="height:65%; animation-delay:.2s;"></div>
+      <p style="margin:0 0 4px; font-size:.9rem; font-weight:600;" data-i18n="now_playing_desc">Guitarra — canal no YouTube</p>
+      <p style="margin:0 0 10px; font-size:.78rem; color:var(--text-dim);" data-i18n="now_playing_band">Overlords From Innerspace — space rock</p>
+      <div style="display:flex; gap:8px;">
+        <div style="flex:1; display:flex; flex-direction:column; align-items:center;">
+          <div class="bars" style="width:100%; justify-content:center;">
+            <div style="height:40%; animation-delay:0s;"></div><div style="height:90%; animation-delay:.15s;"></div><div style="height:60%; animation-delay:.3s;"></div><div style="height:100%; animation-delay:.1s;"></div>
+          </div>
+          <a class="btn ghost" style="display:inline-block; width:100%; text-align:center; margin-top:10px;" href="https://www.youtube.com/@GabrielSalles/videos" target="_blank" rel="noopener"><span data-i18n="view_channel">Ver canal</span></a>
+        </div>
+        <div style="flex:1; display:flex; flex-direction:column; align-items:center;">
+          <div class="bars" style="width:100%; justify-content:center;">
+            <div style="height:50%; animation-delay:.25s;"></div><div style="height:75%; animation-delay:.05s;"></div><div style="height:35%; animation-delay:.35s;"></div><div style="height:65%; animation-delay:.2s;"></div>
+          </div>
+          <a class="btn ghost" style="display:inline-block; width:100%; text-align:center; margin-top:10px;" href="https://linktr.ee/o_f_i" target="_blank" rel="noopener"><span data-i18n="listen_project">Ouvir o projeto</span></a>
+        </div>
       </div>
-      <a class="btn ghost" style="display:inline-block; margin-top:14px;" href="https://www.youtube.com/@GabrielSalles/videos" target="_blank" rel="noopener"><span data-i18n="view_channel">Ver canal</span></a>
     </div>
 
     <div class="panel span-2 panel-quiet">
@@ -403,7 +412,9 @@
       btn_contact: 'Contato',
       now_playing_title: '♪ NOW PLAYING',
       now_playing_desc: 'Guitarra — canal no YouTube',
+      now_playing_band: 'Overlords From Innerspace — space rock',
       view_channel: 'Ver canal',
+      listen_project: 'Ouvir o projeto',
       link_marker: '[link]',
       years_op_title: 'ANOS DE OPERAÇÃO',
       years_op_label: 'em telecom & infra crítica',
@@ -464,7 +475,9 @@
       btn_contact: 'Contact',
       now_playing_title: '♪ NOW PLAYING',
       now_playing_desc: 'Guitar — YouTube channel',
+      now_playing_band: 'Overlords From Innerspace — space rock',
       view_channel: 'View channel',
+      listen_project: 'Listen to the project',
       link_marker: '[add link]',
       years_op_title: 'YEARS OF EXPERIENCE',
       years_op_label: 'in telecom & critical infra',
@@ -534,6 +547,10 @@
     document.getElementById('lang-en').classList.toggle('active', lang === 'en');
     document.getElementById('lang-pt').setAttribute('aria-pressed', lang === 'pt');
     document.getElementById('lang-en').setAttribute('aria-pressed', lang === 'en');
+    var cvLink = document.getElementById('cv-download-link');
+    if(cvLink){
+      cvLink.setAttribute('href', lang === 'en' ? 'files/Gabriel-Salles-CV-EN.pdf' : 'files/Gabriel-Salles-CV-PT.pdf');
+    }
   }
 
   function detectLanguage(){
